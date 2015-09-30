@@ -77,7 +77,8 @@ void MData::outMData(const MarketInfo* data)
 {
   AIR_TRACE <<"MData::outMData()";
 
-  if( instrus_filter_.count( data->instru )>0 )
+  if( instrus_filter_.empty() ||
+      instrus_filter_.count( data->instru )>0 )
   {
     namespace bg=boost::gregorian;
     namespace bp=boost::posix_time;

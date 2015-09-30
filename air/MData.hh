@@ -43,7 +43,7 @@ class MData
 {
  public:
   MData(const std::string& file,
-        const std::string& instrus_filter);
+        const std::string& instrus_filter="");
 
   virtual ~MData();
 
