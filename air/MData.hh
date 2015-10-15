@@ -1,19 +1,17 @@
 #ifndef AIR_MDATA_HH
 #define AIR_MDATA_HH
 
-#include <string>
 #include <fstream>
-#include <set>
 
 #include "soil/MsgQueue.hh"
 #include "boost/date_time.hpp"
+
+#include "air/AirDef.hh"
 
 namespace air
 {
 
 class MData;
-
-typedef std::set<std::string> InstrusFilter;
 
 typedef struct
 {

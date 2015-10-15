@@ -86,5 +86,6 @@ AC_SUBST(GTEST_LIBADD)
 AC_OUTPUT([
 	Makefile
 	air/Makefile
-	libs/Makefile])
+	libs/Makefile
+	utest/Makefile])
 	

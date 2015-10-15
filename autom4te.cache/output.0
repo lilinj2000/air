@@ -15158,7 +15158,7 @@ GTEST_LIBADD="$GTEST_HOME/lib/libgtest.a $GTEST_HOME/lib/libgtest_main.a"
 
 
 
-ac_config_files="$ac_config_files Makefile air/Makefile libs/Makefile"
+ac_config_files="$ac_config_files Makefile air/Makefile libs/Makefile utest/Makefile"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -16285,6 +16285,7 @@ do
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "air/Makefile") CONFIG_FILES="$CONFIG_FILES air/Makefile" ;;
     "libs/Makefile") CONFIG_FILES="$CONFIG_FILES libs/Makefile" ;;
+    "utest/Makefile") CONFIG_FILES="$CONFIG_FILES utest/Makefile" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac
