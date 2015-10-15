@@ -2,7 +2,7 @@ AUTOMAKE_OPTIONS = foreign
 
 noinst_HEADERS = 
 
-header_files = AirDef.hh MData.hh CffexMData.hh
+header_files = MData.hh
 
 EXTRA_DIST = $(header_files)
 
