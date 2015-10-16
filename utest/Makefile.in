@@ -91,7 +91,7 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
-am_unittest_OBJECTS = unittest-MDataTest.$(OBJEXT)
+am_unittest_OBJECTS = unittest-MDataFileTest.$(OBJEXT)
 unittest_OBJECTS = $(am_unittest_OBJECTS)
 am__DEPENDENCIES_1 =
 unittest_DEPENDENCIES = $(am__DEPENDENCIES_1) ../libs/libair.la \
@@ -299,7 +299,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 unittest_SOURCES = \
-	MDataTest.cc
+	MDataFileTest.cc
 
 unittest_CPPFLAGS = -I$(top_srcdir) \
 		$(BOOST_CPPFLAGS) \
@@ -370,7 +370,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unittest-MDataTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unittest-MDataFileTest.Po@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -393,19 +393,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LTCXXCOMPILE) -c -o $@ $<
 
-unittest-MDataTest.o: MDataTest.cc
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT unittest-MDataTest.o -MD -MP -MF $(DEPDIR)/unittest-MDataTest.Tpo -c -o unittest-MDataTest.o `test -f 'MDataTest.cc' || echo '$(srcdir)/'`MDataTest.cc
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/unittest-MDataTest.Tpo $(DEPDIR)/unittest-MDataTest.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='MDataTest.cc' object='unittest-MDataTest.o' libtool=no @AMDEPBACKSLASH@
+unittest-MDataFileTest.o: MDataFileTest.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT unittest-MDataFileTest.o -MD -MP -MF $(DEPDIR)/unittest-MDataFileTest.Tpo -c -o unittest-MDataFileTest.o `test -f 'MDataFileTest.cc' || echo '$(srcdir)/'`MDataFileTest.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/unittest-MDataFileTest.Tpo $(DEPDIR)/unittest-MDataFileTest.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='MDataFileTest.cc' object='unittest-MDataFileTest.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o unittest-MDataTest.o `test -f 'MDataTest.cc' || echo '$(srcdir)/'`MDataTest.cc
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o unittest-MDataFileTest.o `test -f 'MDataFileTest.cc' || echo '$(srcdir)/'`MDataFileTest.cc
 
-unittest-MDataTest.obj: MDataTest.cc
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT unittest-MDataTest.obj -MD -MP -MF $(DEPDIR)/unittest-MDataTest.Tpo -c -o unittest-MDataTest.obj `if test -f 'MDataTest.cc'; then $(CYGPATH_W) 'MDataTest.cc'; else $(CYGPATH_W) '$(srcdir)/MDataTest.cc'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/unittest-MDataTest.Tpo $(DEPDIR)/unittest-MDataTest.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='MDataTest.cc' object='unittest-MDataTest.obj' libtool=no @AMDEPBACKSLASH@
+unittest-MDataFileTest.obj: MDataFileTest.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT unittest-MDataFileTest.obj -MD -MP -MF $(DEPDIR)/unittest-MDataFileTest.Tpo -c -o unittest-MDataFileTest.obj `if test -f 'MDataFileTest.cc'; then $(CYGPATH_W) 'MDataFileTest.cc'; else $(CYGPATH_W) '$(srcdir)/MDataFileTest.cc'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/unittest-MDataFileTest.Tpo $(DEPDIR)/unittest-MDataFileTest.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='MDataFileTest.cc' object='unittest-MDataFileTest.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o unittest-MDataTest.obj `if test -f 'MDataTest.cc'; then $(CYGPATH_W) 'MDataTest.cc'; else $(CYGPATH_W) '$(srcdir)/MDataTest.cc'; fi`
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o unittest-MDataFileTest.obj `if test -f 'MDataFileTest.cc'; then $(CYGPATH_W) 'MDataFileTest.cc'; else $(CYGPATH_W) '$(srcdir)/MDataFileTest.cc'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

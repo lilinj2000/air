@@ -1,16 +1,16 @@
 #include <memory>
 
 #include "gtest/gtest.h"
-#include "air/MData.hh"
 #include "soil/Condition.hh"
+#include "air/MDataFile.hh"
 
 namespace air
 {
 
-class MDataTest : public ::testing::Test
+class MDataFileTest : public ::testing::Test
 {
 public:
-  MDataTest()
+  MDataFileTest()
   {
     cond_.reset( soil::Condition::create() );
   }
@@ -27,28 +27,28 @@ public:
   std::auto_ptr<soil::Condition> cond_;
 };
 
-TEST_F(MDataTest, speedMDataTest)
+TEST_F(MDataFileTest, speedMDataTest)
 {
   std::string file = "speed_data_test.data";
-  std::auto_ptr<MData> speed_mdata( MData::create(MData::SPEED_MDATA,file) );
+  std::auto_ptr<MDataFile> speed_mdata( new MDataFile(file) );
                                                  
-  std::auto_ptr<SpeedMDataField> data(new SpeedMDataField());
+  std::auto_ptr<SpeedMData> data(new SpeedMData());
   
-  speed_mdata->pushMData( data.get() );
+  speed_mdata->putData( data.release() );
 
   cond_->wait( 1000 );
   
   ASSERT_TRUE( true );
 }
 
-TEST_F(MDataTest, cffexMDataTest)
+TEST_F(MDataFileTest, cffexMDataTest)
 {
   std::string file = "cffex_data_test.data";
-  std::auto_ptr<MData> cffex_mdata( MData::create(MData::CFFEX_MDATA, file) );
+  std::auto_ptr<MDataFile> cffex_mdata( new MDataFile(file) );
                                                  
-  std::auto_ptr<CffexMDataField> data(new CffexMDataField());
+  std::auto_ptr<CffexMData> data(new CffexMData());
   
-  cffex_mdata->pushMData( data.get() );
+  cffex_mdata->putData( data.release() );
 
   cond_->wait( 1000 );
   

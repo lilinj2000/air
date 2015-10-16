@@ -120,8 +120,7 @@ am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 am__DEPENDENCIES_1 =
 libair_la_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
-am_libair_la_OBJECTS = libair_la-MData.lo libair_la-SpeedMData.lo \
-	libair_la-CffexMData.lo
+am_libair_la_OBJECTS = libair_la-MDataFile.lo
 libair_la_OBJECTS = $(am_libair_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -326,7 +325,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 lib_LTLIBRARIES = libair.la 
-libair_la_SOURCES = MData.cc SpeedMData.cc CffexMData.cc
+libair_la_SOURCES = MDataFile.cc 
 libair_la_CPPFLAGS = -I$(top_srcdir) $(BOOST_CPPFLAGS) $(SOIL_CPPFLAGS)
 libair_la_LIBADD = $(BOOST_LIBADD) \
 		   $(SOIL_LIBADD)
@@ -337,7 +336,7 @@ libair_la_LDFLAGS = \
 
 
 # header files
-noinst_HEADERS = AirLog.hh SpeedMData.hh CffexMData.hh
+noinst_HEADERS = AirLog.hh 
 all: all-am
 
 .SUFFIXES:
@@ -417,9 +416,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libair_la-CffexMData.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libair_la-MData.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libair_la-SpeedMData.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libair_la-MDataFile.Plo@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -442,26 +439,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LTCXXCOMPILE) -c -o $@ $<
 
-libair_la-MData.lo: MData.cc
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libair_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libair_la-MData.lo -MD -MP -MF $(DEPDIR)/libair_la-MData.Tpo -c -o libair_la-MData.lo `test -f 'MData.cc' || echo '$(srcdir)/'`MData.cc
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libair_la-MData.Tpo $(DEPDIR)/libair_la-MData.Plo
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='MData.cc' object='libair_la-MData.lo' libtool=yes @AMDEPBACKSLASH@
+libair_la-MDataFile.lo: MDataFile.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libair_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libair_la-MDataFile.lo -MD -MP -MF $(DEPDIR)/libair_la-MDataFile.Tpo -c -o libair_la-MDataFile.lo `test -f 'MDataFile.cc' || echo '$(srcdir)/'`MDataFile.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libair_la-MDataFile.Tpo $(DEPDIR)/libair_la-MDataFile.Plo
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='MDataFile.cc' object='libair_la-MDataFile.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libair_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libair_la-MData.lo `test -f 'MData.cc' || echo '$(srcdir)/'`MData.cc
-
-libair_la-SpeedMData.lo: SpeedMData.cc
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libair_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libair_la-SpeedMData.lo -MD -MP -MF $(DEPDIR)/libair_la-SpeedMData.Tpo -c -o libair_la-SpeedMData.lo `test -f 'SpeedMData.cc' || echo '$(srcdir)/'`SpeedMData.cc
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libair_la-SpeedMData.Tpo $(DEPDIR)/libair_la-SpeedMData.Plo
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='SpeedMData.cc' object='libair_la-SpeedMData.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libair_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libair_la-SpeedMData.lo `test -f 'SpeedMData.cc' || echo '$(srcdir)/'`SpeedMData.cc
-
-libair_la-CffexMData.lo: CffexMData.cc
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libair_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libair_la-CffexMData.lo -MD -MP -MF $(DEPDIR)/libair_la-CffexMData.Tpo -c -o libair_la-CffexMData.lo `test -f 'CffexMData.cc' || echo '$(srcdir)/'`CffexMData.cc
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libair_la-CffexMData.Tpo $(DEPDIR)/libair_la-CffexMData.Plo
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='CffexMData.cc' object='libair_la-CffexMData.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libair_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libair_la-CffexMData.lo `test -f 'CffexMData.cc' || echo '$(srcdir)/'`CffexMData.cc
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libair_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libair_la-MDataFile.lo `test -f 'MDataFile.cc' || echo '$(srcdir)/'`MDataFile.cc
 
 mostlyclean-libtool:
 	-rm -f *.lo
