@@ -4,9 +4,8 @@
 #include <string>
 #include <set>
 
-#include "boost/date_time.hpp"
-
 #include "soil/DataFile.hh"
+#include "soil/DateTime.hh"
 
 namespace air
 {
@@ -35,7 +34,7 @@ class SpeedMData : public MData
   std::string update_time;
   int update_millisec;
 
-  boost::posix_time::ptime time_stamp;
+  soil::DateTime time_stamp;
 };
 
 class CffexMData : public MData

@@ -12,14 +12,11 @@ void SpeedMData::writeToFile(std::ofstream& os) const
 
   try
   {
-    namespace bg=boost::gregorian;
-    namespace bp=boost::posix_time;
-  
-    bg::date today( bg::day_clock::local_day() );
-    bp::ptime start_time(today, bp::duration_from_string(update_time));
-    start_time = start_time + bp::milliseconds(update_millisec);
+    soil::DateTime start_time(update_time);
+    
+    start_time += soil::milliseconds(update_millisec);
 
-    bp::time_duration delay = time_stamp - start_time;
+    soil::time_duration delay = time_stamp - start_time;
 
     os <<update_time <<"." <<std::setfill('0') <<std::setw(3)
        <<update_millisec <<"\t"
