@@ -1,7 +1,8 @@
 #include "air/MDataFile.hh"
 #include "AirLog.hh"
 
-#include "boost/tokenizer.hpp"
+#include "soil/String.hh"
+
 
 namespace air
 {
@@ -43,14 +44,8 @@ MDataFile::MDataFile(const std::string& file_name,
     soil::DataFile(file_name)
 {
   AIR_TRACE <<"MDataFile::MDataFile()";
-  
-  boost::tokenizer<> tok( instrus_filter );
-  for( boost::tokenizer<>::iterator beg=tok.begin(); beg!=tok.end(); ++beg )
-  {
-    AIR_DEBUG <<"instrus filter: " <<*beg;
-    instrus_filter_.insert(*beg);
-  }
 
+  soil::splitString(instrus_filter_, instrus_filter);
 }
 
 MDataFile::~MDataFile()
