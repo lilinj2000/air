@@ -13,8 +13,7 @@ void SpeedMData::writeToFile(std::ofstream& os) const
 
   try
   {
-    soil::DateTime start_time;
-    start_time.fromTime(update_time);
+    soil::DateTime start_time(update_time);
     
     start_time += std::chrono::milliseconds(update_millisec);
 
