@@ -141,7 +141,118 @@ std::basic_ostream< CharT, TraitsT >& operator<<(std::basic_ostream< CharT, Trai
     os <<"        \"UpdateMillisec\": \"" <<aCffexMData.UpdateMillisec  <<"\"" <<std::endl;
     os <<"    }" <<std::endl;
     os <<"}" <<std::endl;
-}
+};
+
+class ShfeMData : public MData
+{
+ public:
+  virtual const std::string& instruID() const
+  {
+    return InstrumentID;
+  }
+
+  virtual void writeToFile(std::ofstream& os) const;
+
+  std::string TradingDay;
+  std::string InstrumentID;
+  std::string ExchangeID;
+  std::string ExchangeInstID;
+  double LastPrice;
+  double PreSettlementPrice;
+  double PreClosePrice;
+  double PreOpenInterest;
+  double OpenPrice;
+  double HighestPrice;
+  double LowestPrice;
+  int Volume;
+  double Turnover;
+  double OpenInterest;
+  double ClosePrice;
+  double SettlementPrice;
+  double UpperLimitPrice;
+  double LowerLimitPrice;
+  double PreDelta;
+  double CurrDelta;
+  std::string UpdateTime;
+  int UpdateMillisec;
+  double BidPrice1;
+  double BidVolume1;
+  double AskPrice1;
+  double AskVolume1;
+  double BidPrice2;
+  double BidVolume2;
+  double AskPrice2;
+  double AskVolume2;
+  double BidPrice3;
+  double BidVolume3;
+  double AskPrice3;
+  double AskVolume3;
+  double BidPrice4;
+  double BidVolume4;
+  double AskPrice4;
+  double AskVolume4;
+  double BidPrice5;
+  double BidVolume5;
+  double AskPrice5;
+  double AskVolume5;
+  double AveragePrice;
+  std::string ActionDay;
+};
+
+template< typename CharT, typename TraitsT >
+std::basic_ostream< CharT, TraitsT >& operator<<(std::basic_ostream< CharT, TraitsT >& os, ShfeMData const& aShfeMData)
+{
+  os <<std::endl;
+  os <<"{" <<std::endl;
+  os <<"    \"ShfeDepthMarketDataField\": {" <<std::endl;
+  os <<"        \"TradingDay\": \"" <<aShfeMData.TradingDay  <<"\"," <<std::endl;
+  os <<"        \"InstrumentID\": \"" <<aShfeMData.InstrumentID  <<"\"," <<std::endl;
+  os <<"        \"ExchangeID\": \"" <<aShfeMData.ExchangeID  <<"\"," <<std::endl;
+  os <<"        \"ExchangeInstID\": \"" <<aShfeMData.ExchangeInstID  <<"\"," <<std::endl;
+  os <<"        \"LastPrice\": \"" <<aShfeMData.LastPrice  <<"\"," <<std::endl;
+  os <<"        \"PreSettlementPrice\": \"" <<aShfeMData.PreSettlementPrice  <<"\"," <<std::endl;
+  os <<"        \"PreClosePrice\": \"" <<aShfeMData.PreClosePrice  <<"\"," <<std::endl;
+  os <<"        \"PreOpenInterest\": \"" <<aShfeMData.PreOpenInterest  <<"\"," <<std::endl;
+  os <<"        \"OpenPrice\": \"" <<aShfeMData.OpenPrice  <<"\"," <<std::endl;
+  os <<"        \"HighestPrice\": \"" <<aShfeMData.HighestPrice  <<"\"," <<std::endl;
+  os <<"        \"LowestPrice\": \"" <<aShfeMData.LowestPrice  <<"\"," <<std::endl;
+  os <<"        \"Volume\": \"" <<aShfeMData.Volume  <<"\"," <<std::endl;
+  os <<"        \"Turnover\": \"" <<aShfeMData.Turnover  <<"\"," <<std::endl;
+  os <<"        \"OpenInterest\": \"" <<aShfeMData.OpenInterest  <<"\"," <<std::endl;
+  os <<"        \"ClosePrice\": \"" <<aShfeMData.ClosePrice  <<"\"," <<std::endl;
+  os <<"        \"SettlementPrice\": \"" <<aShfeMData.SettlementPrice  <<"\"," <<std::endl;
+  os <<"        \"UpperLimitPrice\": \"" <<aShfeMData.UpperLimitPrice  <<"\"," <<std::endl;
+  os <<"        \"LowerLimitPrice\": \"" <<aShfeMData.LowerLimitPrice  <<"\"," <<std::endl;
+  os <<"        \"PreDelta\": \"" <<aShfeMData.PreDelta  <<"\"," <<std::endl;
+  os <<"        \"CurrDelta\": \"" <<aShfeMData.CurrDelta  <<"\"," <<std::endl;
+  os <<"        \"UpdateTime\": \"" <<aShfeMData.UpdateTime  <<"\"," <<std::endl;
+  os <<"        \"UpdateMillisec\": \"" <<aShfeMData.UpdateMillisec  <<"\"," <<std::endl;
+  os <<"        \"BidPrice1\": \"" <<aShfeMData.BidPrice1  <<"\"," <<std::endl;
+  os <<"        \"BidVolume1\": \"" <<aShfeMData.BidVolume1  <<"\"," <<std::endl;
+  os <<"        \"AskPrice1\": \"" <<aShfeMData.AskPrice1  <<"\"," <<std::endl;
+  os <<"        \"AskVolume1\": \"" <<aShfeMData.AskVolume1  <<"\"," <<std::endl;
+  os <<"        \"BidPrice2\": \"" <<aShfeMData.BidPrice2  <<"\"," <<std::endl;
+  os <<"        \"BidVolume2\": \"" <<aShfeMData.BidVolume2  <<"\"," <<std::endl;
+  os <<"        \"AskPrice2\": \"" <<aShfeMData.AskPrice2  <<"\"," <<std::endl;
+  os <<"        \"AskVolume2\": \"" <<aShfeMData.AskVolume2  <<"\"," <<std::endl;
+  os <<"        \"BidPrice3\": \"" <<aShfeMData.BidPrice3  <<"\"," <<std::endl;
+  os <<"        \"BidVolume3\": \"" <<aShfeMData.BidVolume3  <<"\"," <<std::endl;
+  os <<"        \"AskPrice3\": \"" <<aShfeMData.AskPrice3  <<"\"," <<std::endl;
+  os <<"        \"AskVolume3\": \"" <<aShfeMData.AskVolume3  <<"\"," <<std::endl;
+  os <<"        \"BidPrice4\": \"" <<aShfeMData.BidPrice4  <<"\"," <<std::endl;
+  os <<"        \"BidVolume4\": \"" <<aShfeMData.BidVolume4  <<"\"," <<std::endl;
+  os <<"        \"AskPrice4\": \"" <<aShfeMData.AskPrice4  <<"\"," <<std::endl;
+  os <<"        \"AskVolume4\": \"" <<aShfeMData.AskVolume4  <<"\"," <<std::endl;
+  os <<"        \"BidPrice5\": \"" <<aShfeMData.BidPrice5  <<"\"," <<std::endl;
+  os <<"        \"BidVolume5\": \"" <<aShfeMData.BidVolume5  <<"\"," <<std::endl;
+  os <<"        \"AskPrice5\": \"" <<aShfeMData.AskPrice5  <<"\"," <<std::endl;
+  os <<"        \"AskVolume5\": \"" <<aShfeMData.AskVolume5  <<"\"," <<std::endl;
+  os <<"        \"AveragePrice\": \"" <<aShfeMData.AveragePrice  <<"\"," <<std::endl;
+  os <<"        \"ActionDay\": \"" <<aShfeMData.ActionDay  <<"\"" <<std::endl;
+  os <<"    }" <<std::endl;
+  os <<"}" <<std::endl;
+
+};
 
 class MDataFile : public soil::DataFile
 {

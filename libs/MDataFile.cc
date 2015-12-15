@@ -38,6 +38,13 @@ void CffexMData::writeToFile(std::ofstream& os) const
   os <<*this <<std::endl;
 }
 
+void ShfeMData::writeToFile(std::ofstream& os) const
+{
+  AIR_TRACE <<"ShfeMDataField::writeToFile()";
+
+  os <<*this <<std::endl;
+}
+
 
 MDataFile::MDataFile(const std::string& file_name,
                      const std::string& instrus_filter):
