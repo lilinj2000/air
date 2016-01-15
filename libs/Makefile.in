@@ -121,7 +121,8 @@ am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 am__DEPENDENCIES_1 =
 libair_la_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
-am_libair_la_OBJECTS = libair_la-MDataFile.lo
+am_libair_la_OBJECTS = libair_la-MDataFile.lo \
+	libair_la-TimeStampDataFile.lo
 libair_la_OBJECTS = $(am_libair_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -327,7 +328,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 lib_LTLIBRARIES = libair.la 
-libair_la_SOURCES = MDataFile.cc 
+libair_la_SOURCES = MDataFile.cc TimeStampDataFile.cc
 libair_la_CPPFLAGS = -I$(top_srcdir) $(BOOST_CPPFLAGS) $(SOIL_CPPFLAGS)
 libair_la_LIBADD = $(BOOST_LIBADD) \
 		   $(SOIL_LIBADD)
@@ -419,6 +420,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libair_la-MDataFile.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libair_la-TimeStampDataFile.Plo@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -447,6 +449,13 @@ libair_la-MDataFile.lo: MDataFile.cc
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='MDataFile.cc' object='libair_la-MDataFile.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libair_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libair_la-MDataFile.lo `test -f 'MDataFile.cc' || echo '$(srcdir)/'`MDataFile.cc
+
+libair_la-TimeStampDataFile.lo: TimeStampDataFile.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libair_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libair_la-TimeStampDataFile.lo -MD -MP -MF $(DEPDIR)/libair_la-TimeStampDataFile.Tpo -c -o libair_la-TimeStampDataFile.lo `test -f 'TimeStampDataFile.cc' || echo '$(srcdir)/'`TimeStampDataFile.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libair_la-TimeStampDataFile.Tpo $(DEPDIR)/libair_la-TimeStampDataFile.Plo
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='TimeStampDataFile.cc' object='libair_la-TimeStampDataFile.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libair_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libair_la-TimeStampDataFile.lo `test -f 'TimeStampDataFile.cc' || echo '$(srcdir)/'`TimeStampDataFile.cc
 
 mostlyclean-libtool:
 	-rm -f *.lo

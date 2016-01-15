@@ -92,7 +92,8 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
-am_unittest_OBJECTS = unittest-MDataFileTest.$(OBJEXT)
+am_unittest_OBJECTS = unittest-MDataFileTest.$(OBJEXT) \
+	unittest-TimeStampDataFileTest.$(OBJEXT)
 unittest_OBJECTS = $(am_unittest_OBJECTS)
 am__DEPENDENCIES_1 =
 unittest_DEPENDENCIES = $(am__DEPENDENCIES_1) ../libs/libair.la \
@@ -301,7 +302,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 unittest_SOURCES = \
-	MDataFileTest.cc
+	MDataFileTest.cc \
+	TimeStampDataFileTest.cc
 
 unittest_CPPFLAGS = -I$(top_srcdir) \
 		$(BOOST_CPPFLAGS) \
@@ -373,6 +375,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unittest-MDataFileTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unittest-TimeStampDataFileTest.Po@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -408,6 +411,20 @@ unittest-MDataFileTest.obj: MDataFileTest.cc
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='MDataFileTest.cc' object='unittest-MDataFileTest.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o unittest-MDataFileTest.obj `if test -f 'MDataFileTest.cc'; then $(CYGPATH_W) 'MDataFileTest.cc'; else $(CYGPATH_W) '$(srcdir)/MDataFileTest.cc'; fi`
+
+unittest-TimeStampDataFileTest.o: TimeStampDataFileTest.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT unittest-TimeStampDataFileTest.o -MD -MP -MF $(DEPDIR)/unittest-TimeStampDataFileTest.Tpo -c -o unittest-TimeStampDataFileTest.o `test -f 'TimeStampDataFileTest.cc' || echo '$(srcdir)/'`TimeStampDataFileTest.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/unittest-TimeStampDataFileTest.Tpo $(DEPDIR)/unittest-TimeStampDataFileTest.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='TimeStampDataFileTest.cc' object='unittest-TimeStampDataFileTest.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o unittest-TimeStampDataFileTest.o `test -f 'TimeStampDataFileTest.cc' || echo '$(srcdir)/'`TimeStampDataFileTest.cc
+
+unittest-TimeStampDataFileTest.obj: TimeStampDataFileTest.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT unittest-TimeStampDataFileTest.obj -MD -MP -MF $(DEPDIR)/unittest-TimeStampDataFileTest.Tpo -c -o unittest-TimeStampDataFileTest.obj `if test -f 'TimeStampDataFileTest.cc'; then $(CYGPATH_W) 'TimeStampDataFileTest.cc'; else $(CYGPATH_W) '$(srcdir)/TimeStampDataFileTest.cc'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/unittest-TimeStampDataFileTest.Tpo $(DEPDIR)/unittest-TimeStampDataFileTest.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='TimeStampDataFileTest.cc' object='unittest-TimeStampDataFileTest.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(unittest_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o unittest-TimeStampDataFileTest.obj `if test -f 'TimeStampDataFileTest.cc'; then $(CYGPATH_W) 'TimeStampDataFileTest.cc'; else $(CYGPATH_W) '$(srcdir)/TimeStampDataFileTest.cc'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

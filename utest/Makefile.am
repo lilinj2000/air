@@ -3,7 +3,8 @@ AUTOMAKE_OPTIONS = foreign
 noinst_PROGRAMS = unittest
 
 unittest_SOURCES = \
-	MDataFileTest.cc
+	MDataFileTest.cc \
+	TimeStampDataFileTest.cc
 
 unittest_CPPFLAGS = -I$(top_srcdir) \
 		$(BOOST_CPPFLAGS) \
