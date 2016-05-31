@@ -1,3 +1,6 @@
+// Copyright (c) 2010
+// All rights reserved.
+
 #ifndef AIR_TIMESTAMP_DATA_FILE_HH
 #define AIR_TIMESTAMP_DATA_FILE_HH
 
@@ -7,16 +10,14 @@
 #include "soil/DataFile.hh"
 #include "soil/DateTime.hh"
 
-namespace air
-{
+namespace air {
 
 class TimeStampDataFile;
 
-class TimeStampData : public soil::Data
-{
+class TimeStampData : public soil::Data {
  public:
-  TimeStampData(int order_ref);
-  
+  explicit TimeStampData(int order_ref);
+
   int orderRef() const { return order_ref_; }
 
   const soil::DateTime T0() const { return t0_; }
@@ -29,10 +30,9 @@ class TimeStampData : public soil::Data
 
   void updateT2();
 
-  virtual void writeToFile(std::ofstream& os) const;
+  virtual void writeToFile(std::ofstream* os) const;
 
  private:
-  
   int order_ref_;
   // request order insert timestamp
   soil::DateTime t0_;
@@ -43,33 +43,25 @@ class TimeStampData : public soil::Data
 };
 
 template< typename CharT, typename TraitsT >
-std::basic_ostream< CharT, TraitsT >& operator<<(std::basic_ostream< CharT, TraitsT >& os, TimeStampData const& aTimeStampData)
-{
+std::basic_ostream< CharT, TraitsT >& operator<<(std::basic_ostream< CharT, TraitsT >& os, TimeStampData const& aTimeStampData) {  // NOLINT(whitespace/line_length)
     os <<std::endl;
     os <<"{" <<std::endl;
     os <<"    \"TimeStampData\": {" <<std::endl;
-    os <<"        \"order_ref\": \"" <<aTimeStampData.orderRef()  <<"\"," <<std::endl;
+    os <<"        \"order_ref\": \"" <<aTimeStampData.orderRef()  <<"\"," <<std::endl;  // NOLINT(whitespace/line_length)
     os <<"        \"t0\": \"" <<aTimeStampData.T0()  <<"\"," <<std::endl;
     os <<"        \"t1\": \"" <<aTimeStampData.T1()  <<"\"," <<std::endl;
     os <<"        \"t2\": \"" <<aTimeStampData.T2()  <<"\"" <<std::endl;
     os <<"    }" <<std::endl;
     os <<"}" <<std::endl;
-};
+}
 
-class TimeStampDataFile : public soil::DataFile
-{
+class TimeStampDataFile : public soil::DataFile {
  public:
-  
-  TimeStampDataFile(const std::string& file_name);
+  explicit TimeStampDataFile(const std::string& file_name);
 
   virtual ~TimeStampDataFile();
-
- protected:
-
- private:
-  
 };
 
-};
+};  // namespace air
 
 #endif

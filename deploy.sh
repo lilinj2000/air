@@ -2,10 +2,6 @@
 
 home_libs=~/libs
 
-if test -d /llj/libs ; then
-   home_libs=/llj/libs
-fi
-
 home_air=${home_libs}/air
 
 ./configure --prefix=${home_air}

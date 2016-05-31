@@ -1,53 +1,48 @@
+// Copyright (c) 2010
+// All rights reserved.
+
 #include <memory>
 
 #include "gtest/gtest.h"
 #include "soil/STimer.hh"
 #include "air/TimeStampDataFile.hh"
 
-namespace air
-{
+namespace air {
 
-class TimeStampDataFileTest : public ::testing::Test
-{
-public:
-  TimeStampDataFileTest()
-  {
-    cond_.reset( soil::STimer::create() );
+class TimeStampDataFileTest : public ::testing::Test {
+ public:
+  TimeStampDataFileTest() {
+    cond_.reset(soil::STimer::create());
   }
 
-  void SetUp()
-  {
+  void SetUp() {
   }
 
-  void TearDown()
-  {
+  void TearDown() {
   }
 
  protected:
   std::unique_ptr<soil::STimer> cond_;
 };
 
-TEST_F(TimeStampDataFileTest, timeStampDataTest)
-{
+TEST_F(TimeStampDataFileTest, timeStampDataTest) {
   std::string file = "timestamp_data_test.data";
-  std::unique_ptr<TimeStampDataFile> timestamp_file( new TimeStampDataFile(file) );
+  std::unique_ptr<TimeStampDataFile> timestamp_file(new TimeStampDataFile(file));  // NOLINT(whitespace/line_length)
 
   int order_ref = 1;
   std::unique_ptr<TimeStampData> data(new TimeStampData(1));
 
-  cond_->wait( 1000 );
+  cond_->wait(1000);
 
   data->updateT1();
-
-  cond_->wait( 1000 );
+  cond_->wait(1000);
 
   data->updateT2();
-  
-  timestamp_file->putData( data.release() );
 
-  cond_->wait( 1000 );
-  
-  ASSERT_TRUE( true );
+  timestamp_file->putData(data.release());
+  cond_->wait(1000);
+
+  GTEST_SUCCEED();
 }
 
 }  // namespace air

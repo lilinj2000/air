@@ -1438,7 +1438,8 @@ Optional Packages:
                         (or the compiler's sysroot if not specified).
   --with-boost            home path of the boost, defaults to @S|@home_3rd/boost
   --with-soil             home path of the soil, defaults to @S|@home_libs/soil
-  --with-gtest            home path of the gtest, defaults to @S|@home_3rd/gtest
+  --with-gtest            home path of the gtest, defaults to
+                          @S|@home_3rd/googletest
 
 Some influential environment variables:
   CXX         C++ compiler command
@@ -15291,15 +15292,6 @@ LT_AGE=0
 home_3rd=~/3rd
 home_libs=~/libs
 
-if test -d /llj/3rd ; then
-   home_3rd=/llj/3rd
-fi
-
-if test -d /llj/libs ; then
-   home_libs=/llj/libs
-fi
-
-
 
 @%:@ Check whether --with-boost was given.
 if test "${with_boost+set}" = set; then :
@@ -15343,7 +15335,7 @@ SOIL_LIBADD="$SOIL_HOME/lib/libsoil.la"
 if test "${with_gtest+set}" = set; then :
   withval=$with_gtest; GTEST_HOME="$withval"
 else
-  GTEST_HOME="$home_3rd/gtest"
+  GTEST_HOME="$home_3rd/googletest"
 fi
 
 

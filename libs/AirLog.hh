@@ -1,3 +1,6 @@
+// Copyright (c) 2010
+// All rights reserved.
+
 #ifndef AIR_LOG_HH
 #define AIR_LOG_HH
 
@@ -13,7 +16,6 @@
 #define AIR_FATAL SOIL_FATAL
 #define AIR_PDU SOIL_PDU
 #define AIR_CUSTOM SOIL_CUSTOM
-
 
 #endif
 

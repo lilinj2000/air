@@ -36,15 +36,6 @@ AC_SUBST(LT_AGE)
 home_3rd=~/3rd
 home_libs=~/libs
 
-if test -d /llj/3rd ; then
-   home_3rd=/llj/3rd
-fi
-
-if test -d /llj/libs ; then
-   home_libs=/llj/libs
-fi
-
-
 dnl boost lib
 AC_ARG_WITH([boost],
     [AS_HELP_STRING([--with-boost],
@@ -82,9 +73,9 @@ AC_SUBST(SOIL_LIBADD)
 dnl gtest lib
 AC_ARG_WITH([gtest],
     [AS_HELP_STRING([--with-gtest],
-        [home path of the gtest, defaults to $home_3rd/gtest])],
+        [home path of the gtest, defaults to $home_3rd/googletest])],
     [GTEST_HOME="$withval"],
-    [GTEST_HOME="$home_3rd/gtest"])
+    [GTEST_HOME="$home_3rd/googletest"])
 AC_SUBST([GTEST_HOME])
 
 GTEST_CPPFLAGS=-I$GTEST_HOME/include
