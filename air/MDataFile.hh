@@ -246,6 +246,8 @@ std::basic_ostream< CharT, TraitsT >& operator<<(std::basic_ostream< CharT, Trai
   os <<"}" <<std::endl;
 }
 
+extern ShfeMData* toShfeMData(const std::string& msg);
+
 class MDataFile : public soil::DataFile {
  public:
   MDataFile(const std::string& file_name,

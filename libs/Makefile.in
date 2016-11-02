@@ -120,7 +120,8 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 am__DEPENDENCIES_1 =
-libair_la_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+libair_la_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
 am_libair_la_OBJECTS = libair_la-MDataFile.lo \
 	libair_la-TimeStampDataFile.lo
 libair_la_OBJECTS = $(am_libair_la_OBJECTS)
@@ -235,6 +236,9 @@ INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+JSON_CPPFLAGS = @JSON_CPPFLAGS@
+JSON_HOME = @JSON_HOME@
+JSON_LIBADD = @JSON_LIBADD@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
@@ -265,6 +269,8 @@ PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
+RAPIDJSON_CPPFLAGS = @RAPIDJSON_CPPFLAGS@
+RAPIDJSON_HOME = @RAPIDJSON_HOME@
 SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
@@ -329,9 +335,15 @@ top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 lib_LTLIBRARIES = libair.la 
 libair_la_SOURCES = MDataFile.cc TimeStampDataFile.cc
-libair_la_CPPFLAGS = -I$(top_srcdir) $(BOOST_CPPFLAGS) $(SOIL_CPPFLAGS)
+libair_la_CPPFLAGS = -I$(top_srcdir) \
+		$(BOOST_CPPFLAGS) \
+		$(SOIL_CPPFLAGS) \
+		$(RAPIDJSON_CPPFLAGS) \
+		$(JSON_CPPFLAGS)
+
 libair_la_LIBADD = $(BOOST_LIBADD) \
-		   $(SOIL_LIBADD)
+		   $(SOIL_LIBADD) \
+	  	   $(JSON_LIBADD)
 
 libair_la_LDFLAGS = \
 	-no-undefined -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
