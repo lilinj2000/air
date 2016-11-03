@@ -147,6 +147,8 @@ class ShfeMData : public MData {
 
   virtual void writeToFile(std::ofstream* os) const;
 
+  void fromString(const std::string& msg);
+
   std::string TradingDay;
   std::string InstrumentID;
   std::string ExchangeID;
@@ -246,7 +248,6 @@ std::basic_ostream< CharT, TraitsT >& operator<<(std::basic_ostream< CharT, Trai
   os <<"}" <<std::endl;
 }
 
-extern ShfeMData* toShfeMData(const std::string& msg);
 
 class MDataFile : public soil::DataFile {
  public:

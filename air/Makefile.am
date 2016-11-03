@@ -2,7 +2,9 @@ AUTOMAKE_OPTIONS = foreign
 
 noinst_HEADERS = 
 
-header_files = MDataFile.hh TimeStampDataFile.hh
+header_files = MDataFile.hh \
+	TimeStampDataFile.hh \
+	CearData.hh
 
 EXTRA_DIST = $(header_files)
 

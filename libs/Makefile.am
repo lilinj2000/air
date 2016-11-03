@@ -1,7 +1,10 @@
 AUTOMAKE_OPTIONS = foreign
 
 lib_LTLIBRARIES = libair.la 
-libair_la_SOURCES = MDataFile.cc TimeStampDataFile.cc
+libair_la_SOURCES = MDataFile.cc \
+		TimeStampDataFile.cc \
+		CearData.cc
+
 libair_la_CPPFLAGS = -I$(top_srcdir) \
 		$(BOOST_CPPFLAGS) \
 		$(SOIL_CPPFLAGS) \
@@ -17,6 +20,6 @@ libair_la_LDFLAGS = \
 	-release $(LT_RELEASE) 
 
 # header files
-noinst_HEADERS = AirLog.hh 
+noinst_HEADERS = Log.hh 
 
 

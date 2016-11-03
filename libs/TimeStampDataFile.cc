@@ -3,7 +3,7 @@
 
 #include "air/TimeStampDataFile.hh"
 #include "soil/String.hh"
-#include "AirLog.hh"
+#include "Log.hh"
 
 namespace air {
 
