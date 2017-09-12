@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.63])
-AC_INIT(air, 0.1, lilinjiang@gmail.com)
+AC_INIT(air, 0.1, lilinj2000@gmail.com)
 AC_CONFIG_SRCDIR([])
 #AC_CONFIG_HEADERS([config.h])
 
@@ -45,14 +45,10 @@ AC_ARG_WITH([boost],
 AC_SUBST([BOOST_HOME])
 
 BOOST_CPPFLAGS="-I$BOOST_HOME/include -DBOOST_ALL_DYN_LINK"
-BOOST_LIBADD="$BOOST_HOME/lib/libboost_log_setup.so \
-              $BOOST_HOME/lib/libboost_log.so \
+BOOST_LIBADD=" \
 	      $BOOST_HOME/lib/libboost_filesystem.so \
-  	      $BOOST_HOME/lib/libboost_program_options.so \
 	      $BOOST_HOME/lib/libboost_regex.so \
 	      $BOOST_HOME/lib/libboost_thread.so \
-	      $BOOST_HOME/lib/libboost_chrono.so \
-	      $BOOST_HOME/lib/libboost_date_time.so \
 	      $BOOST_HOME/lib/libboost_system.so"
 AC_SUBST(BOOST_CPPFLAGS)
 AC_SUBST(BOOST_LIBADD)
@@ -66,8 +62,34 @@ AC_ARG_WITH([rapidjson],
     [RAPIDJSON_HOME="$RAPIDJSON_HOME"])
 AC_SUBST([RAPIDJSON_HOME])
 
-RAPIDJSON_CPPFLAGS="-I$RAPIDJSON_HOME/include"
+RAPIDJSON_CPPFLAGS="-I$RAPIDJSON_HOME/include -DRAPIDJSON_HAS_STDSTRING"
 AC_SUBST(RAPIDJSON_CPPFLAGS)
+
+dnl fmt lib
+FMT_HOME=$home_3rd/fmt
+AC_ARG_WITH([fmt], 
+    [AS_HELP_STRING([--with-fmt],
+        [home path of the fmt, defaults to $FMT_HOME])],
+    [FMT_HOME="$withval"],
+    [FMT_HOME="$FMT_HOME"])
+AC_SUBST([FMT_HOME])
+
+FMT_CPPFLAGS="-I$FMT_HOME/include"
+FMT_LIBADD="-L$FMT_HOME/lib -lfmt"
+AC_SUBST(FMT_CPPFLAGS)
+AC_SUBST(FMT_LIBADD)
+
+dnl spdlog lib
+SPDLOG_HOME=$home_3rd/spdlog
+AC_ARG_WITH([spdlog], 
+    [AS_HELP_STRING([--with-spdlog],
+        [home path of the spdlog, defaults to $SPDLOG_HOME])],
+    [SPDLOG_HOME="$withval"],
+    [SPDLOG_HOME="$SPDLOG_HOME"])
+AC_SUBST([SPDLOG_HOME])
+
+SPDLOG_CPPFLAGS="-I$SPDLOG_HOME/include -DSPDLOG_FMT_EXTERNAL"
+AC_SUBST(SPDLOG_CPPFLAGS)
 
 dnl soil lib
 AC_ARG_WITH([soil],
@@ -82,26 +104,13 @@ SOIL_LIBADD="$SOIL_HOME/lib/libsoil.la"
 AC_SUBST(SOIL_CPPFLAGS)
 AC_SUBST(SOIL_LIBADD)
 
-dnl json lib
-AC_ARG_WITH([json],
-    [AS_HELP_STRING([--with-json],
-        [home path of the json, defaults to $home_libs/json])],
-    [JSON_HOME="$withval"],
-    [JSON_HOME="$home_libs/json"])
-AC_SUBST([JSON_HOME])
-
-JSON_CPPFLAGS="-I$JSON_HOME/include"
-JSON_LIBADD="$JSON_HOME/lib/libjson.la"
-AC_SUBST(JSON_CPPFLAGS)
-AC_SUBST(JSON_LIBADD)
-
-
 dnl gtest lib
+GTEST_HOME=$home_3rd/googletest
 AC_ARG_WITH([gtest],
     [AS_HELP_STRING([--with-gtest],
-        [home path of the gtest, defaults to $home_3rd/googletest])],
+        [home path of the gtest, defaults to $GTEST_HOME])],
     [GTEST_HOME="$withval"],
-    [GTEST_HOME="$home_3rd/googletest"])
+    [GTEST_HOME="$GTEST_HOME"])
 AC_SUBST([GTEST_HOME])
 
 GTEST_CPPFLAGS=-I$GTEST_HOME/include

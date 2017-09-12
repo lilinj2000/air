@@ -1,55 +1,52 @@
 // Copyright (c) 2010
 // All rights reserved.
 
+#include "fmt/format.h"
 #include "air/TimeStampDataFile.hh"
-#include "soil/String.hh"
-#include "Log.hh"
+#include "soil/Log.hh"
 
 namespace air {
 
 TimeStampData::TimeStampData(int order_ref):
     order_ref_(order_ref) {
-  AIR_TRACE <<"TimeStampData::TimeStampData()";
+  LOG_TRACE("TimeStampData::TimeStampData()");
 }
 
 void TimeStampData::updateT1() {
-  AIR_TRACE <<"TimeStampData::updateT1()";
+  LOG_TRACE("TimeStampData::updateT1()");
 
   t1_ = soil::DateTime::now();
 }
 
 void TimeStampData::updateT2() {
-  AIR_TRACE <<"TimeStampData::updateT2()";
+  LOG_TRACE("TimeStampData::updateT2()");
 
   t2_ = soil::DateTime::now();
 }
 
 void TimeStampData::writeToFile(std::ofstream* os) const {
-  AIR_TRACE <<"TimeStampData::writeToFile()";
+  LOG_TRACE("TimeStampData::writeToFile()");
 
-  try {
-    std::chrono::system_clock::duration d1 = t1_ - t0_;
-    std::chrono::system_clock::duration d2 = t2_ - t0_;
+  std::chrono::system_clock::duration d1 = t1_ - t0_;
+  std::chrono::system_clock::duration d2 = t2_ - t0_;
 
-(*os) <<order_ref_ <<"\t"
-    <<t0_ <<"\t"
-    <<t1_ <<"\t"
-    <<t2_ <<"\t"
-    <<d1.count() <<"\t"
-    <<d2.count() <<std::endl;
-  }
-  catch( ... ) {
-    AIR_ERROR <<"catch exception on write to file.";
-  }
+  (*os) <<fmt::format("{}\t{}\t{}\t{}\t{}\t{}",
+                      order_ref_,
+                      t0_,
+                      t1_,
+                      t2_,
+                      d1.count(),
+                      d2.count())
+        <<std::endl;
 }
 
 TimeStampDataFile::TimeStampDataFile(const std::string& file_name):
     soil::DataFile(file_name) {
-  AIR_TRACE <<"TimeStampDataFile::TimeStampDataFile()";
+  LOG_TRACE("TimeStampDataFile::TimeStampDataFile()");
 }
 
 TimeStampDataFile::~TimeStampDataFile() {
-  AIR_TRACE <<"TimeStampDataFile::~TimeStampDataFile()";
+  LOG_TRACE("TimeStampDataFile::~TimeStampDataFile()");
 }
 
 };  // namespace air

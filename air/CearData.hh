@@ -4,6 +4,7 @@
 #ifndef AIR_CEAR_DATA_HH
 #define AIR_CEAR_DATA_HH
 
+#include <string>
 #include "MDataFile.hh"
 
 namespace air {

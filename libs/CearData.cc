@@ -4,43 +4,47 @@
 #include <iomanip>
 
 #include "air/CearData.hh"
-#include "json/json.hh"
-#include "Log.hh"
+#include "fmt/format.h"
+#include "soil/json.hh"
+#include "soil/Log.hh"
 
 namespace air {
 
 void CearData::writeToFile(std::ofstream* os) const {
-  AIR_TRACE <<"CearData::writeToFile()";
+  LOG_TRACE("CearData::writeToFile()");
 
-  (*os) <<instru <<"\t"
-        <<time_stamp
-        <<" (" <<update_time <<"." <<std::setfill('0') <<std::setw(3) <<update_millisec <<")" <<"\t"
-        <<bid_price1 <<"\t"
-        <<bid_volume1 <<"\t"
-        <<ask_price1 <<"\t"
-        <<ask_volume1 <<std::endl;
+  (*os) <<fmt::format("{}\t{} ({}.{:0>3})\t{}\t{}\t{}\t{}",
+                      instru,
+                      time_stamp,
+                      update_time,
+                      update_millisec,
+                      bid_price1,
+                      bid_volume1,
+                      ask_price1,
+                      ask_volume1)
+        <<std::endl;
 }
 
 void CearData::fromString(const std::string& msg) {
-  json::Document doc;
-  json::fromString(msg, &doc);
+  rapidjson::Document doc;
+  doc.Parse(msg);
 
-  if (doc.HasMember("OnRtnDepthMarketData")) {
-    const json::Value& rtn_depth_data = doc["OnRtnDepthMarketData"];
+  std::string root = "/CThostFtdcDepthMarketDataField";
+  std::string key = root + "/InstrumentID";
+  soil::json::get_item_value(&instru, doc, key);
 
-    if (rtn_depth_data.HasMember("CThostFtdcDepthMarketDataField")) {
-      const json::Value& data = rtn_depth_data["CThostFtdcDepthMarketDataField"];  // NOLINT(*)
-
-      this->instru = data["InstrumentID"].GetString();
-      this->update_time = data["UpdateTime"].GetString();
-      this->update_millisec = atoi(data["UpdateMillisec"].GetString());
-      this->bid_price1 = atof(data["BidPrice1"].GetString());
-      this->bid_volume1 = atoi(data["BidVolume1"].GetString());
-      this->ask_price1 = atof(data["AskPrice1"].GetString());
-      this->ask_volume1 = atoi(data["AskVolume1"].GetString());
-      this->time_stamp = soil::DateTime(rtn_depth_data["timestamp"].GetString());  // NOLINT(*)
-    }
-  }
+  key = root + "/UpdateTime";
+  soil::json::get_item_value(&update_time, doc, key);
+  key = root + "/UpdateMillisec";
+  soil::json::get_item_value(&update_millisec, doc, key);
+  key = root + "/BidPrice1";
+  soil::json::get_item_value(&bid_price1, doc, key);
+  key = root + "/BidVolume1";
+  soil::json::get_item_value(&bid_volume1, doc, key);
+  key = root + "/AskPrice1";
+  soil::json::get_item_value(&ask_price1, doc, key);
+  key = root + "/AskVolume1";
+  soil::json::get_item_value(&ask_volume1, doc, key);
 
   return;
 }

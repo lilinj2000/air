@@ -37,16 +37,16 @@ TEST_F(MDataFileTest, speedMDataTest) {
   GTEST_SUCCEED();
 }
 
-TEST_F(MDataFileTest, cffexMDataTest) {
-  std::string file = "cffex_data_test.data";
-  std::unique_ptr<MDataFile> cffex_mdata(new MDataFile(file));
-  std::unique_ptr<CffexMData> data(new CffexMData());
+// TEST_F(MDataFileTest, cffexMDataTest) {
+//   std::string file = "cffex_data_test.data";
+//   std::unique_ptr<MDataFile> cffex_mdata(new MDataFile(file));
+//   std::unique_ptr<CffexMData> data(new CffexMData());
 
-  cffex_mdata->putData(data.release());
+//   cffex_mdata->putData(data.release());
 
-  cond_->wait(1000);
+//   cond_->wait(1000);
 
-  GTEST_SUCCEED();
-}
+//   GTEST_SUCCEED();
+// }
 
 }  // namespace air
