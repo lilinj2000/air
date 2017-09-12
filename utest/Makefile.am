@@ -1,6 +1,6 @@
 AUTOMAKE_OPTIONS = foreign
 
-noinst_PROGRAMS = unittest
+check_PROGRAMS = unittest
 
 unittest_SOURCES = \
 	MDataFileTest.cc \
