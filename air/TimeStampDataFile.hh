@@ -38,6 +38,14 @@ class TimeStampData :
   void updateT1();
   void updateT2();
 
+  bool isT1Updated() {
+    return t1_updated_;
+  }
+
+  bool isT2Updated() {
+    return t2_updated_;
+  }
+
   virtual void writeToFile(std::ofstream* os) const;
 
  private:
@@ -48,6 +56,9 @@ class TimeStampData :
   soil::DateTime t1_;
   // on rtn order, from exchange response
   soil::DateTime t2_;
+
+  bool t1_updated_;
+  bool t2_updated_;
 };
 
 class TimeStampDataFile : public soil::DataFile {

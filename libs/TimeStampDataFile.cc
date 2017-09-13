@@ -8,7 +8,9 @@
 namespace air {
 
 TimeStampData::TimeStampData(int order_ref):
-    order_ref_(order_ref) {
+    order_ref_(order_ref),
+    t1_updated_(false),
+    t2_updated_(false) {
   LOG_TRACE("TimeStampData::TimeStampData()");
 }
 
@@ -16,12 +18,14 @@ void TimeStampData::updateT1() {
   LOG_TRACE("TimeStampData::updateT1()");
 
   t1_ = soil::DateTime::now();
+  t1_updated_ = true;
 }
 
 void TimeStampData::updateT2() {
   LOG_TRACE("TimeStampData::updateT2()");
 
   t2_ = soil::DateTime::now();
+  t2_updated_ = true;
 }
 
 void TimeStampData::writeToFile(std::ofstream* os) const {
