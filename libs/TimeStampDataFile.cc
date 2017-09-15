@@ -18,14 +18,14 @@ void TimeStampData::updateT1() {
   LOG_TRACE("TimeStampData::updateT1()");
 
   t1_ = soil::DateTime::now();
-  t1_updated_ = true;
+  t_mask_.set(0);
 }
 
 void TimeStampData::updateT2() {
   LOG_TRACE("TimeStampData::updateT2()");
 
   t2_ = soil::DateTime::now();
-  t2_updated_ = true;
+  t_mask_.set(1);
 }
 
 void TimeStampData::writeToFile(std::ofstream* os) const {

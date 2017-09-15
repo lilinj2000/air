@@ -6,6 +6,7 @@
 
 #include <string>
 #include <set>
+#include <bitset>
 
 #include "soil/DataFile.hh"
 #include "soil/DateTime.hh"
@@ -38,12 +39,8 @@ class TimeStampData :
   void updateT1();
   void updateT2();
 
-  bool isT1Updated() {
-    return t1_updated_;
-  }
-
-  bool isT2Updated() {
-    return t2_updated_;
+  bool allUpdated() {
+    return t_mask_.all();
   }
 
   virtual void writeToFile(std::ofstream* os) const;
@@ -57,8 +54,7 @@ class TimeStampData :
   // on rtn order, from exchange response
   soil::DateTime t2_;
 
-  bool t1_updated_;
-  bool t2_updated_;
+  std::bitset<2> t_mask_;
 };
 
 class TimeStampDataFile : public soil::DataFile {
