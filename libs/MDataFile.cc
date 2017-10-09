@@ -10,7 +10,7 @@
 namespace air {
 
 void SpeedMData::writeToFile(std::ofstream* os) const {
-  LOG_TRACE("SpeedMData::writeToFile()");
+  SOIL_TRACE("SpeedMData::writeToFile()");
 
   soil::DateTime start_time(update_time);
 
@@ -29,17 +29,17 @@ MDataFile::MDataFile(
     const std::string& file_name,
     const std::string& instrus_filter):
     soil::DataFile(file_name) {
-  LOG_TRACE("MDataFile::MDataFile()");
+  SOIL_TRACE("MDataFile::MDataFile()");
 
   soil::splitString(&instrus_filter_, instrus_filter);
 }
 
 MDataFile::~MDataFile() {
-  LOG_TRACE("MDataFile::~MDataFile()");
+  SOIL_TRACE("MDataFile::~MDataFile()");
 }
 
 bool MDataFile::filterData(const soil::Data* data) {
-  LOG_TRACE("MData::filterData()");
+  SOIL_TRACE("MData::filterData()");
 
   const MData* mdata
       = dynamic_cast<const MData*>(data);

@@ -11,7 +11,7 @@
 namespace air {
 
 void CearData::writeToFile(std::ofstream* os) const {
-  LOG_TRACE("CearData::writeToFile()");
+  SOIL_TRACE("CearData::writeToFile()");
 
   (*os) <<fmt::format("{}\t{} ({}.{:0>3})\t{}\t{}\t{}\t{}",
                       instru,

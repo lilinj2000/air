@@ -10,6 +10,7 @@ libair_la_CPPFLAGS = -I$(top_srcdir) \
 		$(SOIL_CPPFLAGS) \
 		$(RAPIDJSON_CPPFLAGS) \
 		$(FMT_CPPFLAGS) \
+		$(READERWRITERQUEUE_CPPFLAGS) \
 		$(SPDLOG_CPPFLAGS)
 
 libair_la_LIBADD = $(BOOST_LIBADD) \
